@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pane Workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="stage">
+  <div class="wall" id="wall"></div>
+  <div id="scroller"><main id="main"></main></div>
+  <aside class="side glass" id="side"></aside>
+  <div class="tools glass">
+    <button title="Search" data-go="tasks"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+    <button title="New task" data-new><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button title="Theme" id="themeBtn"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <button title="Notifications"><svg class="i" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button>
+  </div>
+  <div class="island" id="island"><div class="isl-body" id="islBody"></div></div>
+  <div id="dragLayer"></div>
+</div>
+
+<div class="scrim" id="scrim">
+  <form class="modal glass" id="newForm">
+    <h3>New task</h3>
+    <div class="field"><label>Title</label><input name="title" required placeholder="What needs doing?" autocomplete="off"></div>
+    <div class="two">
+      <div class="field"><label>Project</label><select name="project" id="projSel"></select></div>
+      <div class="field"><label>Priority</label><select name="priority"><option value="">None</option><option>High</option><option>Urgent</option></select></div>
+    </div>
+    <div class="two">
+      <div class="field"><label>Status</label><select name="status"><option value="todo">To do</option><option value="progress">In progress</option><option value="review">In review</option></select></div>
+      <div class="field"><label>Due</label><input name="due" placeholder="Today"></div>
+    </div>
+    <div class="btns" style="justify-content:flex-end;margin-top:6px"><button type="button" class="btn" id="cancelNew">Cancel</button><button class="btn pri">Create task</button></div>
+  </form>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
